@@ -63,5 +63,8 @@ fitControl <- trainControl(method="repeatedcv",
 modFit_RF <- train(training$classe ~ .,method="rf", data = training, trControl = fitControl)
 PredRF <- predict(modFit_RF,testing)
 RF_CM <- confusionMatrix(PredRF,testing$classe)
-RF_CM
+RF_CM$overall
 ```
+      Accuracy          Kappa  AccuracyLower  AccuracyUpper   AccuracyNull AccuracyPValue  McnemarPValue 
+     0.9944943      0.9930350      0.9919995      0.9963687      0.2844617      0.0000000            NaN
+    
