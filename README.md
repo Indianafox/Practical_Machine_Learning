@@ -20,3 +20,11 @@ The original source of this data comes from this original source: http://groupwa
 ### The Code:
 
 ### load libraries and read in raw data
+```
+library(caret)
+library(gbm)
+url <- "https://d396qusza40orc.cloudfront.net/predmachlearn/pml-training.csv"
+training_Raw <- read.csv(url)
+url2 <- "https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv"
+testing_Raw <- read.csv(url2)
+```
