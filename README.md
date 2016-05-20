@@ -67,4 +67,10 @@ RF_CM$overall
 ```
       Accuracy          Kappa  AccuracyLower  AccuracyUpper   AccuracyNull AccuracyPValue  McnemarPValue 
      0.9944943      0.9930350      0.9919995      0.9963687      0.2844617      0.0000000            NaN
-    
+```
+# Model using rpart method of caret train function
+modFit_rpart <- train(training$classe ~ .,method="rpart",data=training, trControl = fitControl)
+PredRPART <- predict(modFit_rpart,testing)
+RPart<- confusionMatrix(PredRPART,testing$classe)
+RPart_CM$overall
+```
