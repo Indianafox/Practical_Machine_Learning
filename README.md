@@ -74,3 +74,14 @@ PredRPART <- predict(modFit_rpart,testing)
 RPart<- confusionMatrix(PredRPART,testing$classe)
 RPart_CM$overall
 ```
+      Accuracy          Kappa  AccuracyLower  AccuracyUpper   AccuracyNull AccuracyPValue  McnemarPValue 
+  4.951060e-01   3.402883e-01   4.810171e-01   5.092008e-01   2.844617e-01  7.446777e-212            NaN
+```
+# Model using gbm method of caret train function
+modFit_gbm <- train(training$classe ~ .,method="gbm",data=training, trControl = fitControl)
+PredGBM <- predict(modFit_gbm,testing) #
+GBM_CM <- confusionMatrix(PredGBM,testing$classe) # Accuracy 0.9623
+GBM_CM$overall
+```
+      Accuracy          Kappa  AccuracyLower  AccuracyUpper   AccuracyNull AccuracyPValue  McnemarPValue 
+  9.622757e-01   9.522868e-01   9.565588e-01   9.674334e-01   2.844617e-01   0.000000e+00   5.312594e-06
