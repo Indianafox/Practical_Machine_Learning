@@ -11,7 +11,7 @@ The raw data for this project was obtained from here:
 
 https://d396qusza40orc.cloudfront.net/predmachlearn/pml-training.csv
 
-The test data are available here:
+The test data for the prediction quiz part of this assignment are available here:
 
 https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv
 
@@ -27,4 +27,11 @@ url <- "https://d396qusza40orc.cloudfront.net/predmachlearn/pml-training.csv"
 training_Raw <- read.csv(url)
 url2 <- "https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv"
 testing_Raw <- read.csv(url2)
+```
+
+### Partition training_raw dataframe into training and testing dataframes
+```
+inTrain <-createDataPartition(training$classe, p=0.75)[[1]]
+training <- training_Raw[inTrain,]
+testing <- training_Raw[-inTrain,]
 ```
