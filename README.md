@@ -65,34 +65,3 @@ PredRF <- predict(modFit_RF,testing)
 RF_CM <- confusionMatrix(PredRF,testing$classe)
 RF_CM
 ```
-Confusion Matrix and Statistics
-
-          Reference
-Prediction    A    B    C    D    E
-         A 1393    7    0    0    0
-         B    2  942    5    0    0
-         C    0    0  846    8    0
-         D    0    0    4  795    0
-         E    0    0    0    1  901
-
-Overall Statistics
-                                         
-               Accuracy : 0.9945         
-                 95% CI : (0.992, 0.9964)
-    No Information Rate : 0.2845         
-    P-Value [Acc > NIR] : < 2.2e-16      
-                                         
-                  Kappa : 0.993          
- Mcnemar's Test P-Value : NA             
-
-Statistics by Class:
-
-                     Class: A Class: B Class: C Class: D Class: E
-Sensitivity            0.9986   0.9926   0.9895   0.9888   1.0000
-Specificity            0.9980   0.9982   0.9980   0.9990   0.9998
-Pos Pred Value         0.9950   0.9926   0.9906   0.9950   0.9989
-Neg Pred Value         0.9994   0.9982   0.9978   0.9978   1.0000
-Prevalence             0.2845   0.1935   0.1743   0.1639   0.1837
-Detection Rate         0.2841   0.1921   0.1725   0.1621   0.1837
-Detection Prevalence   0.2855   0.1935   0.1741   0.1629   0.1839
-Balanced Accuracy      0.9983   0.9954   0.9937   0.9939   0.9999
