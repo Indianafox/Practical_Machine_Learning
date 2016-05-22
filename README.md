@@ -27,6 +27,8 @@ url <- "https://d396qusza40orc.cloudfront.net/predmachlearn/pml-training.csv"
 training_Raw <- read.csv(url)
 url2 <- "https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv"
 testing_Raw <- read.csv(url2)
+
+set.seed(510)
 ```
 
 ### Partition training_raw dataframe into training and testing dataframes
@@ -66,16 +68,17 @@ RF_CM <- confusionMatrix(PredRF,testing$classe)
 RF_CM$overall
 ```
       Accuracy          Kappa  AccuracyLower  AccuracyUpper   AccuracyNull AccuracyPValue  McnemarPValue 
-     0.9944943      0.9930350      0.9919995      0.9963687      0.2844617      0.0000000            NaN
+      0.9944943      0.9930350      0.9919995      0.9963687      0.2844617      0.0000000            NaN
 ```
 # Model using rpart method of caret train function
 modFit_rpart <- train(training$classe ~ .,method="rpart",data=training, trControl = fitControl)
 PredRPART <- predict(modFit_rpart,testing)
-RPart<- confusionMatrix(PredRPART,testing$classe)
+RPart_CM <- confusionMatrix(PredRPART,testing$classe)
 RPart_CM$overall
 ```
       Accuracy          Kappa  AccuracyLower  AccuracyUpper   AccuracyNull AccuracyPValue  McnemarPValue 
-  4.951060e-01   3.402883e-01   4.810171e-01   5.092008e-01   2.844617e-01  7.446777e-212            NaN
+     0.5034666     3.521546e-01   4.893724e-01   5.175566e-01   2.844617e-01  3.077590e-228         NaN 
+> 
 ```
 # Model using gbm method of caret train function
 modFit_gbm <- train(training$classe ~ .,method="gbm",data=training, trControl = fitControl)
@@ -84,4 +87,11 @@ GBM_CM <- confusionMatrix(PredGBM,testing$classe) # Accuracy 0.9623
 GBM_CM$overall
 ```
       Accuracy          Kappa  AccuracyLower  AccuracyUpper   AccuracyNull AccuracyPValue  McnemarPValue 
-  9.622757e-01   9.522868e-01   9.565588e-01   9.674334e-01   2.844617e-01   0.000000e+00   5.312594e-06
+      0.9622757   9.522868e-01   9.565588e-01   9.674334e-01   2.844617e-01   0.000000e+00   5.312594e-06
+  
+ ### Choose best method
+ The method with the lowest error rate (ie 1-0.9943 = 0.0167 or 1.67%) is Random Forest.
+
+### Use Random Forest method on 20 test cases for automated marking part of assignment
+```
+
