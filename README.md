@@ -31,7 +31,7 @@ testing_Raw <- read.csv(url2)
 
 ### Partition training_raw dataframe into training and testing dataframes
 ```
-inTrain <-createDataPartition(training$classe, p=0.75)[[1]]
+inTrain <-createDataPartition(training_Raw$classe, p=0.75)[[1]]
 training <- training_Raw[inTrain,]
 testing <- training_Raw[-inTrain,]
 ```
