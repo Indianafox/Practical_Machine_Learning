@@ -15,7 +15,7 @@ The test data for the prediction quiz part of this assignment are available here
 
 https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv
 
-The original source of this data comes from this original source: http://groupware.les.inf.puc-rio.br/har. 
+The original source of this data comes this page: http://groupware.les.inf.puc-rio.br/har. 
 
 ### The Code:
 
