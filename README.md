@@ -89,7 +89,7 @@ GBM_CM$overall
      0.9622757   9.522868e-01   9.565588e-01   9.674334e-01   2.844617e-01   0.000000e+00   5.312594e-06
   
 ### Choose best method
-The method with the lowest error rate (ie 1-0.9943 = 0.0167 or 1.67%) is Random Forest.
+The method with the lowest error rate (ie 1-0.9943 = 0.0057 or 0.57%) is Random Forest.
 
 ### Use Random Forest method on 20 test cases for automated marking part of assignment
 ```
