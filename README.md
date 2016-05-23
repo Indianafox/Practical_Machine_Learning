@@ -67,8 +67,8 @@ PredRF <- predict(modFit_RF,testing)
 RF_CM <- confusionMatrix(PredRF,testing$classe)
 RF_CM$overall
 ```
-      Accuracy          Kappa  AccuracyLower  AccuracyUpper   AccuracyNull AccuracyPValue  McnemarPValue 
-      0.9944943      0.9930350      0.9919995      0.9963687      0.2844617      0.0000000            NaN
+     Accuracy          Kappa  AccuracyLower  AccuracyUpper   AccuracyNull AccuracyPValue  McnemarPValue 
+     0.9944943      0.9930350      0.9919995      0.9963687      0.2844617      0.0000000            NaN
 ```
 # Model using rpart method of caret train function
 modFit_rpart <- train(training$classe ~ .,method="rpart",data=training, trControl = fitControl)
@@ -76,7 +76,7 @@ PredRPART <- predict(modFit_rpart,testing)
 RPart_CM <- confusionMatrix(PredRPART,testing$classe)
 RPart_CM$overall
 ```
-      Accuracy          Kappa  AccuracyLower  AccuracyUpper   AccuracyNull AccuracyPValue  McnemarPValue 
+     Accuracy          Kappa  AccuracyLower  AccuracyUpper   AccuracyNull AccuracyPValue  McnemarPValue 
      0.5034666     3.521546e-01   4.893724e-01   5.175566e-01   2.844617e-01  3.077590e-228         NaN 
 ```
 # Model using gbm method of caret train function
@@ -85,8 +85,8 @@ PredGBM <- predict(modFit_gbm,testing) #
 GBM_CM <- confusionMatrix(PredGBM,testing$classe) # Accuracy 0.9623
 GBM_CM$overall
 ```
-      Accuracy          Kappa  AccuracyLower  AccuracyUpper   AccuracyNull AccuracyPValue  McnemarPValue 
-      0.9622757   9.522868e-01   9.565588e-01   9.674334e-01   2.844617e-01   0.000000e+00   5.312594e-06
+     Accuracy          Kappa  AccuracyLower  AccuracyUpper   AccuracyNull AccuracyPValue  McnemarPValue 
+     0.9622757   9.522868e-01   9.565588e-01   9.674334e-01   2.844617e-01   0.000000e+00   5.312594e-06
   
 ### Choose best method
 The method with the lowest error rate (ie 1-0.9943 = 0.0167 or 1.67%) is Random Forest.
