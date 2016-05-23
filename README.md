@@ -78,7 +78,6 @@ RPart_CM$overall
 ```
       Accuracy          Kappa  AccuracyLower  AccuracyUpper   AccuracyNull AccuracyPValue  McnemarPValue 
      0.5034666     3.521546e-01   4.893724e-01   5.175566e-01   2.844617e-01  3.077590e-228         NaN 
-> 
 ```
 # Model using gbm method of caret train function
 modFit_gbm <- train(training$classe ~ .,method="gbm",data=training, trControl = fitControl)
@@ -89,9 +88,13 @@ GBM_CM$overall
       Accuracy          Kappa  AccuracyLower  AccuracyUpper   AccuracyNull AccuracyPValue  McnemarPValue 
       0.9622757   9.522868e-01   9.565588e-01   9.674334e-01   2.844617e-01   0.000000e+00   5.312594e-06
   
- ### Choose best method
- The method with the lowest error rate (ie 1-0.9943 = 0.0167 or 1.67%) is Random Forest.
+### Choose best method
+The method with the lowest error rate (ie 1-0.9943 = 0.0167 or 1.67%) is Random Forest.
 
 ### Use Random Forest method on 20 test cases for automated marking part of assignment
 ```
-
+Classe <- predict(modFit_RF,test20) # Predict classe
+test20 <- cbind(test20,Classe) # Add new column containing predicted classe values
+test20 <- test20[,c(53:54)] # Keep only problem_id and classe vars
+write.csv(test20,"test20.csv")
+```
